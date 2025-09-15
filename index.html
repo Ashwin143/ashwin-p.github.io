@@ -1,0 +1,343 @@
+
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashwin Parthasarathy | Data Scientist & ML Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page portfolio with a top navigation bar for smooth scrolling. This structure is chosen for its modern, clean user experience, allowing visitors (like recruiters) to either get a quick overview or dive deep into specific areas without leaving the page. The flow is designed to be non-linear: Hero (introduction) -> About (personal context) -> Skills (interactive visualization of capabilities) -> Experience (chronological career story) -> Project Spotlight (interactive deep-dive into key work) -> Education (credentials). This structure logically tells a career story while prioritizing easy access to the most critical information. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Long list of technical skills. Goal: Organize/Compare. Viz/Presentation: Interactive Bubble Chart (Chart.js). Interaction: Hover tooltips. Justification: More engaging and visually informative than a static list, showing the landscape of expertise at a glance.
+        - Report Info: Chronological work history. Goal: Show career progression. Viz/Presentation: Vertical Timeline (HTML/CSS). Interaction: N/A. Justification: An intuitive and classic way to represent career history.
+        - Report Info: Project descriptions from resume. Goal: Inform/Deep-Dive. Viz/Presentation: Two-pane layout with clickable project cards and a dynamic detail view. Interaction: Clicking a card updates the detail view with project info. Justification: Organizes detailed project information cleanly, preventing initial information overload and encouraging user exploration.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm Off-White */
+            color: #383838; /* Dark Charcoal */
+        }
+        .accent-color { color: #005A5B; } /* Deep Teal */
+        .bg-accent-color { background-color: #005A5B; }
+        .border-accent-color { border-color: #005A5B; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 40vh;
+            max-height: 500px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 500px;
+            }
+        }
+        .project-card.active {
+            border-color: #005A5B;
+            transform: scale(1.05);
+            box-shadow: 0 4px 14px 0 rgba(0, 90, 91, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="bg-[#FDFBF8]/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl accent-color">AP</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-600 hover:accent-color px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="text-gray-600 hover:accent-color px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#experience" class="text-gray-600 hover:accent-color px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#projects" class="text-gray-600 hover:accent-color px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#education" class="text-gray-600 hover:accent-color px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Ashwin Parthasarathy</h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-500">Machine Learning Engineer</p>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="mailto:ashwinparthasarathy30@gmail.com" class="text-gray-500 hover:accent-color" title="Email">
+                    <span class="text-2xl">&#9993;</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:accent-color" title="LinkedIn">
+                     <span class="text-2xl">&#128188;</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:accent-color" title="GitHub">
+                    <span class="text-2xl">&#128187;</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 items-center">
+                <div class="md:col-span-2">
+                    <h2 class="text-3xl font-bold tracking-tight accent-color">About Me</h2>
+                    <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                        I am a passionate Data Science enthusiast with over seven years of experience in data analytics, backend development, and automation. My journey has been driven by a desire for continuous learning and professional growth, leading me to tackle challenging assignments that leverage data to create value. With a Post-Graduation Diploma in Machine Learning and hands-on experience in enhancing and automating complex applications, I thrive on transforming raw data into actionable insights and robust, scalable solutions. I am dedicated to pushing the boundaries of what's possible with machine learning and building intelligent systems that solve real-world problems.
+                    </p>
+                </div>
+                <img src="foto.jpeg" alt="Ashwin Parthasarathy" class="w-48 h-48 md:w-64 md:h-64 mx-auto rounded-full object-cover">
+            </div>
+        </section>
+
+
+
+        <section id="skills" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold tracking-tight text-center accent-color">Technical Skills</h2>
+                 <p class="mt-4 max-w-2xl mx-auto text-center text-lg text-gray-500">A visual representation of my technical expertise. The size of the bubble indicates proficiency and experience. Hover over a bubble for more details.</p>
+                <div class="mt-12 chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold tracking-tight text-center accent-color">Career Journey</h2>
+                <div class="mt-16">
+                    <div class="relative wrap overflow-hidden p-10 h-full">
+                        <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+                        
+                        <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                            <div class="order-1 w-5/12"></div>
+                            <div class="z-20 flex items-center order-1 bg-accent-color shadow-xl w-8 h-8 rounded-full">
+                                <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                            </div>
+                            <div class="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4">
+                                <h3 class="font-bold text-gray-800 text-xl">Senior Analyst/MLE</h3>
+                                <p class="text-sm leading-snug tracking-wide text-gray-600">Tiger Analytics (Apr 2024 - May 2025)</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                            <div class="order-1 w-5/12"></div>
+                            <div class="z-20 flex items-center order-1 bg-accent-color shadow-xl w-8 h-8 rounded-full">
+                                <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                            </div>
+                            <div class="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4">
+                                <h3 class="font-bold text-gray-800 text-xl">Machine Learning Engineer</h3>
+                                <p class="text-sm leading-snug tracking-wide text-gray-600">Neoware.ai (Apr 2023 - Dec 2023)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                            <div class="order-1 w-5/12"></div>
+                            <div class="z-20 flex items-center order-1 bg-accent-color shadow-xl w-8 h-8 rounded-full">
+                                <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                            </div>
+                            <div class="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4">
+                                <h3 class="font-bold text-gray-800 text-xl">Software Engineer</h3>
+                                <p class="text-sm leading-snug tracking-wide text-gray-600">Wipro Technology Solutions (Jan 2022 - Apr 2023)</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                            <div class="order-1 w-5/12"></div>
+                            <div class="z-20 flex items-center order-1 bg-accent-color shadow-xl w-8 h-8 rounded-full">
+                                <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                            </div>
+                            <div class="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4">
+                                <h3 class="font-bold text-gray-800 text-xl">Associate</h3>
+                                <p class="text-sm leading-snug tracking-wide text-gray-600">Cognizant Technology Solutions (Aug 2017 - Dec 2021)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold tracking-tight text-center accent-color">Project Spotlight</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-center text-lg text-gray-500">
+                    A selection of projects I've worked on. Click on a project card to see more details about the challenges, solutions, and technologies involved.
+                </p>
+                <div class="mt-12 grid lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1">
+                        <div id="project-list" class="space-y-4">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-white p-8 rounded-lg shadow-lg min-h-[400px]">
+                        <h3 id="project-title" class="text-2xl font-bold accent-color">Select a Project</h3>
+                        <p id="project-description" class="mt-4 text-gray-600">Details about the selected project will appear here.</p>
+                        <div id="project-tags" class="mt-6 flex flex-wrap gap-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="education" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold tracking-tight text-center accent-color">Education & Certifications</h2>
+                <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold">Executive Post Graduate Programme</h3>
+                        <p class="text-sm text-gray-600">Indian Institute of Management, Kozhikode</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold">PG-Level Advanced Certification in AI and MLOPS</h3>
+                        <p class="text-sm text-gray-600">Indian Institute of Science, Bengaluru</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold">Bachelor of Engineering - Mechanical</h3>
+                        <p class="text-sm text-gray-600">Anna University, Chennai</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold">AWS Certified Machine Learning – Specialty</h3>
+                        <p class="text-sm text-gray-600">Amazon Web Services</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold">Databricks Certified Machine Learning Associate</h3>
+                        <p class="text-sm text-gray-600">Databricks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+             <p class="text-gray-400">&copy; 2025 Ashwin Parthasarathy. All rights reserved.</p>
+             <div class="mt-4 flex justify-center space-x-6">
+                <a href="mailto:ashwinparthasarathy30@gmail.com" class="text-gray-400 hover:text-white" title="Email">&#9993;</a>
+                <a href="#" class="text-gray-400 hover:text-white" title="LinkedIn">&#128188;</a>
+                <a href="#" class="text-gray-400 hover:text-white" title="GitHub">&#128187;</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const projectsData = [
+            {
+                id: 1,
+                title: 'RAG with Scalable FastAPI Architecture',
+                description: 'Contributed to a scalable architecture with FastAPI backends and frontends on Azure Red Hat OpenShift, managed via a CI/CD pipeline. The backend integrates Retrieval Augmented Generation (RAG) using the gpt-4.0-mini model for enhanced capabilities.',
+                tags: ['FastAPI', 'Azure', 'OpenShift', 'CI/CD', 'RAG', 'GPT-4']
+            },
+            {
+                id: 2,
+                title: 'ML Model Migration to Databricks',
+                description: 'Migrated ML models from Azure VMs to Databricks on Azure, improving scalability and performance. Developed bidirectional workflows to enable real-time insights for a centralized parking management system, ensuring model accuracy post-migration.',
+                tags: ['Databricks', 'Azure', 'Python', 'SQL', 'Scalability']
+            },
+            {
+                id: 3,
+                title: 'ML Observability Platform',
+                description: 'Enhanced an ML Observability platform with automation scripts for end-to-end visibility of key performance indicators, including data quality, anomalies, model performance, and data drift. Deployed in client environments to ensure robust monitoring.',
+                tags: ['MLOps', 'Python', 'Docker', 'Monitoring', 'Automation']
+            },
+            {
+                id: 4,
+                title: 'Medical Question Answering with GPT-2',
+                description: 'Fine-tuned a GPT-2 language model on a specialized Medical Q&A dataset to provide accurate and immediate healthcare advice. The project involved rigorous data preprocessing, EDA, and feature extraction to democratize access to medical information.',
+                tags: ['NLP', 'GPT-2', 'PyTorch', 'TensorFlow', 'Healthcare AI']
+            },
+            {
+                id: 5,
+                title: 'Automatic Image Captioning',
+                description: 'Developed a multimodal neural network integrating computer vision and NLP using the Flickr8k dataset. Employed pre-trained ViT models and attention mechanisms to generate accurate and contextually relevant image captions.',
+                tags: ['Computer Vision', 'NLP', 'ViT', 'PyTorch', 'Deep Learning']
+            },
+            {
+                id: 6,
+                title: 'Patient Survival Prediction',
+                description: 'Built and deployed a patient survival prediction model using XGBoost. The model was containerized and deployed on AWS using ECR and ECS for a scalable and reliable predictive healthcare application.',
+                tags: ['XGBoost', 'AWS', 'ECR', 'ECS', 'Predictive Modeling']
+            }
+        ];
+
+        const projectList = document.getElementById('project-list');
+        const projectTitle = document.getElementById('project-title');
+        const projectDescription = document.getElementById('project-description');
+        const projectTags = document.getElementById('project-tags');
+
+        function showProjectDetails(projectId) {
+            const project = projectsData.find(p => p.id === projectId);
+            if (!project) return;
+
+            projectTitle.textContent = project.title;
+            projectDescription.textContent = project.description;
+            
+            projectTags.innerHTML = '';
+            project.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'bg-accent-color/10 text-accent-color text-xs font-medium px-2.5 py-0.5 rounded-full';
+                tagElement.textContent = tag;
+                projectTags.appendChild(tagElement);
+            });
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.querySelector(`.project-card[data-id='${projectId}']`).classList.add('active');
+        }
+
+        projectsData.forEach(project => {
+            const card = document.createElement('button');
+            card.className = 'project-card w-full text-left p-4 bg-white rounded-lg shadow-md border-2 border-transparent hover:border-accent-color transition-all duration-300';
+            card.dataset.id = project.id;
+            card.innerHTML = `<h4 class="font-bold">${project.title}</h4>`;
+            card.onclick = () => showProjectDetails(project.id);
+            projectList.appendChild(card);
+        });
+        
+        showProjectDetails(1);
+
+        const skillsData = {
+            labels: ['Python', 'Databricks', 'AWS Sagemaker', 'Docker', 'MLflow', 'FastAPI', 'Terraform', 'NLP', 'GPT', 'PyTorch', 'TensorFlow', 'CI/CD', 'Azure', 'SQL', 'XGBoost'],
+            datasets: [
+                { label: 'ML & Data Science', data: [ {x:2, y:8, r:28, skill: 'Python'}, {x:7, y:7, r:22, skill: 'Databricks'}, {x:4, y:3, r:30, skill: 'NLP'}, {x:8, y:1, r:25, skill: 'GPT'}, {x:6, y:5, r:20, skill: 'PyTorch'}, {x:5, y:9, r:18, skill: 'TensorFlow'}, {x:1, y:2, r:24, skill: 'XGBoost'} ], backgroundColor: 'rgba(0, 90, 91, 0.7)' },
+                { label: 'Cloud & MLOps', data: [ {x:1, y:5, r:26, skill: 'AWS Sagemaker'}, {x:3, y:1, r:23, skill: 'Docker'}, {x:9, y:4, r:20, skill: 'MLflow'}, {x:5, y:2, r:22, skill: 'Terraform'}, {x:8, y:8, r:25, skill: 'Azure'}, {x:2, y:4, r:21, skill: 'CI/CD'} ], backgroundColor: 'rgba(255, 159, 64, 0.7)' },
+                { label: 'Backend & Tools', data: [ {x:6, y:8, r:24, skill: 'FastAPI'}, {x:9, y:9, r:26, skill: 'SQL'} ], backgroundColor: 'rgba(75, 192, 192, 0.7)' }
+            ]
+        };
+
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        const skillsChart = new Chart(ctx, {
+            type: 'bubble',
+            data: skillsData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const item = context.dataset.data[context.dataIndex];
+                                return `${context.dataset.label}: ${item.skill}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { display: false },
+                    y: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
